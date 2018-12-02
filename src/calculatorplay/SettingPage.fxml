@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.effect.*?>
+<?import java.lang.*?>
+<?import java.util.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<AnchorPane id="AnchorPane" prefHeight="600.0" prefWidth="335.0" style="-fx-background-color: #eae8cc;" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="calculatorplay.SettingPageController">
+   <children>
+      <Slider fx:id="volumeSlider" layoutX="148.0" layoutY="127.0" />
+      <TextField fx:id="volumeTextField" layoutX="55.0" layoutY="121.0" prefHeight="30.0" prefWidth="64.0" />
+      <Button cacheShape="false" centerShape="false" focusTraversable="false" layoutX="218.0" layoutY="465.0" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" mnemonicParsing="false" onAction="#BackButton" prefHeight="70.0" prefWidth="98.0" scaleShape="false" style="-fx-font-size: 20;" stylesheets="@Button.css" text="back">
+         <effect>
+            <Bloom />
+         </effect>
+      </Button>
+      <Label layoutX="60.0" layoutY="86.0" text="Volume" />
+   </children>
+</AnchorPane>

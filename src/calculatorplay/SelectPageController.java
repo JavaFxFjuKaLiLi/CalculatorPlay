@@ -1,4 +1,4 @@
-package javafxapplication3;
+package calculatorplay;
 
 import java.io.IOException;
 import java.net.URISyntaxException;
@@ -12,8 +12,6 @@ import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
-import javafx.scene.media.Media;
-import javafx.scene.media.MediaPlayer;
 import javafx.stage.Stage;
 
 public class SelectPageController implements Initializable {

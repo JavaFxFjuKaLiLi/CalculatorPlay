@@ -10,7 +10,7 @@
 <?import javafx.scene.layout.VBox?>
 
 
-<AnchorPane id="AnchorPane" prefHeight="600.0" prefWidth="335.0" style="-fx-background-color: #eae8cc;" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/8.0.171" fx:controller="javafxapplication3.GamePageController">
+<AnchorPane id="AnchorPane" prefHeight="600.0" prefWidth="335.0" style="-fx-background-color: #eae8cc;" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/8.0.171" fx:controller="calculatorplay.GamePageController">
    <children>
       <VBox layoutX="11.0" layoutY="300.0" prefHeight="255.0" prefWidth="315.0">
          <children>

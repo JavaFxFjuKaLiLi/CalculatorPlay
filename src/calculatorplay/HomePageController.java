@@ -3,7 +3,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package javafxapplication3;
+package calculatorplay;
 
 import java.io.IOException;
 import java.net.URISyntaxException;
@@ -33,6 +33,15 @@ public class HomePageController implements Initializable {
     @FXML
     private void StartButton(ActionEvent event) throws IOException, URISyntaxException {
         Parent root = FXMLLoader.load(getClass().getResource("SelectPage.fxml"));
+        Stage stage = (Stage)((Node)event.getSource()).getScene().getWindow();
+        Scene scene = new Scene(root);
+        stage.setScene(scene);
+        stage.show();
+    }
+    
+    @FXML
+    private void StartSetting(ActionEvent event) throws IOException, URISyntaxException {
+        Parent root = FXMLLoader.load(getClass().getResource("SettingPage.fxml"));
         Stage stage = (Stage)((Node)event.getSource()).getScene().getWindow();
         Scene scene = new Scene(root);
         stage.setScene(scene);
