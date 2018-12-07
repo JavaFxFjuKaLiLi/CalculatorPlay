@@ -2,6 +2,7 @@
 
 <?import javafx.geometry.Insets?>
 <?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
 <?import javafx.scene.effect.Bloom?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.HBox?>
@@ -9,8 +10,7 @@
 <?import javafx.scene.layout.Region?>
 <?import javafx.scene.layout.VBox?>
 
-
-<AnchorPane id="AnchorPane" prefHeight="600.0" prefWidth="335.0" style="-fx-background-color: #eae8cc;" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/8.0.171" fx:controller="calculatorplay.GamePageController">
+<AnchorPane id="AnchorPane" prefHeight="600.0" prefWidth="335.0" style="-fx-background-color: #eae8cc;" xmlns="http://javafx.com/javafx/10.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="calculatorplay.GamePageController">
    <children>
       <VBox layoutX="11.0" layoutY="300.0" prefHeight="255.0" prefWidth="315.0">
          <children>
@@ -90,5 +90,19 @@
          </opaqueInsets>
       </Region>
       <Region layoutX="20.0" layoutY="48.0" prefHeight="200.0" prefWidth="295.0" style="-fx-background-color: #aedaa1; -fx-background-radius: 15;" />
+      <VBox prefHeight="200.0" prefWidth="100.0" />
+      <Pane layoutX="217.0" layoutY="65.0" prefHeight="31.0" prefWidth="89.0" style="-fx-background-color: #708090;">
+         <children>
+            <Label layoutX="9.0" layoutY="2.0" prefHeight="31.0" prefWidth="63.0" text="GOAL：" textFill="WHITE" />
+         </children>
+      </Pane>
+      <Pane layoutX="120.0" layoutY="65.0" prefHeight="31.0" prefWidth="89.0" style="-fx-background-color: #708090;">
+         <children>
+            <Label layoutX="5.0" prefHeight="31.0" prefWidth="73.0" text="MOVES：" textFill="WHITE" />
+         </children>
+      </Pane>
+      <Label layoutX="88.0" layoutY="28.0" prefHeight="20.0" prefWidth="63.0" text="LEVELS：" textFill="WHITE" />
+      <Pane layoutX="39.0" layoutY="122.0" prefHeight="70.0" prefWidth="259.0" style="-fx-background-color: #708090;" />
+      <Label layoutX="76.0" layoutY="115.0" prefHeight="31.0" prefWidth="73.0" textFill="WHITE" />
    </children>
 </AnchorPane>
