@@ -33,7 +33,7 @@
                      </effect>
                   </Button>
                   <Pane prefHeight="60.0" prefWidth="10.5" />
-                  <Button cacheShape="false" centerShape="false" focusTraversable="false" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" mnemonicParsing="false" prefHeight="70.0" prefWidth="98.0" scaleShape="false" style="-fx-font-size: 30;" stylesheets="@Button.css" text="+1" textFill="#1e1d1d">
+                  <Button fx:id="ClearButton" cacheShape="false" centerShape="false" focusTraversable="false" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" mnemonicParsing="false" onAction="#ClearButton" prefHeight="70.0" prefWidth="98.0" scaleShape="false" style="-fx-font-size: 30;" stylesheets="@Button.css" text="CLR" textFill="#1e1d1d">
                      <effect>
                         <Bloom />
                      </effect>
@@ -55,7 +55,7 @@
                      </effect>
                   </Button>
                   <Pane prefHeight="60.0" prefWidth="10.5" />
-                  <Button cacheShape="false" centerShape="false" focusTraversable="false" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" mnemonicParsing="false" prefHeight="70.0" prefWidth="98.0" scaleShape="false" style="-fx-font-size: 20;" stylesheets="@Button.css">
+                  <Button fx:id="PLUSButton" cacheShape="false" centerShape="false" focusTraversable="false" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" mnemonicParsing="false" onAction="#ADDButton" prefHeight="70.0" prefWidth="98.0" scaleShape="false" style="-fx-font-size: 20;" stylesheets="@Button.css" text="+1">
                      <effect>
                         <Bloom />
                      </effect>

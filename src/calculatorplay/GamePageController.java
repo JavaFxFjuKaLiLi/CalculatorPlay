@@ -33,6 +33,8 @@ public class GamePageController implements Initializable {
     @FXML Label goal;
     @FXML Label move;
     @FXML Label state;
+    @FXML Button ClearButton;
+    @FXML Button PLUSButton;
     static int Level=1;
     static int Goal=-5;
     static int init_Move=1;
@@ -52,6 +54,11 @@ public class GamePageController implements Initializable {
     private void ClearButton(ActionEvent event) throws IOException, URISyntaxException {
             now_Move=init_Move;
             now_State=init_State;
+    }     
+    @FXML
+    private void ADDButton(ActionEvent event) throws IOException, URISyntaxException {
+            now_Move-=1;
+            now_State+=1;
     }   
     @Override
     public void initialize(URL url, ResourceBundle rb) {
@@ -78,7 +85,7 @@ public class GamePageController implements Initializable {
                 return Integer.parseInt(string);
             }
         } );
-        move.textProperty().bindBidirectional(new SimpleIntegerProperty(init_Move), new StringConverter<Number>() {
+        move.textProperty().bindBidirectional(new SimpleIntegerProperty(now_Move), new StringConverter<Number>() {
             @Override
             public String toString(Number object) {
                 return object.toString();
@@ -89,7 +96,7 @@ public class GamePageController implements Initializable {
                 return Integer.parseInt(string);
             }
         } );
-        state.textProperty().bindBidirectional(new SimpleIntegerProperty(init_State), new StringConverter<Number>() {
+        state.textProperty().bindBidirectional(new SimpleIntegerProperty(now_State), new StringConverter<Number>() {
             @Override
             public String toString(Number object) {
                 return object.toString();
