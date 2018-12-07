@@ -6,9 +6,11 @@
 package calculatorplay;
 
 import java.io.IOException;
+import static java.lang.String.format;
 import java.net.URISyntaxException;
 import java.net.URL;
 import java.util.ResourceBundle;
+import javafx.beans.property.SimpleIntegerProperty;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -17,7 +19,9 @@ import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
+import javafx.scene.control.Label;
 import javafx.stage.Stage;
+import javafx.util.StringConverter;
 
 /**
  * FXML Controller class
@@ -25,8 +29,16 @@ import javafx.stage.Stage;
  * @author user
  */
 public class GamePageController implements Initializable {
-
-    
+    @FXML Label level;
+    @FXML Label goal;
+    @FXML Label move;
+    @FXML Label state;
+    static int Level=1;
+    static int Goal=-5;
+    static int init_Move=1;
+    static int now_Move=1;
+    static int init_State=1;
+    static int now_State=1;
     @FXML
     private void BackButton(ActionEvent event) throws IOException, URISyntaxException {
             String value = ((Button)event.getSource()).getText();
@@ -36,9 +48,58 @@ public class GamePageController implements Initializable {
             stage.setScene(scene);
             stage.show();
     }   
+    @FXML
+    private void ClearButton(ActionEvent event) throws IOException, URISyntaxException {
+            now_Move=init_Move;
+            now_State=init_State;
+    }   
     @Override
     public void initialize(URL url, ResourceBundle rb) {
         // TODO
+        level.textProperty().bindBidirectional(new SimpleIntegerProperty(Level), new StringConverter<Number>() {
+            @Override
+            public String toString(Number object) {
+                return object.toString();
+            }
+
+            @Override
+            public Number fromString(String string) {
+                return Integer.parseInt(string);
+            }
+        } );
+        goal.textProperty().bindBidirectional(new SimpleIntegerProperty(Goal), new StringConverter<Number>() {
+            @Override
+            public String toString(Number object) {
+                return object.toString();
+            }
+
+            @Override
+            public Number fromString(String string) {
+                return Integer.parseInt(string);
+            }
+        } );
+        move.textProperty().bindBidirectional(new SimpleIntegerProperty(init_Move), new StringConverter<Number>() {
+            @Override
+            public String toString(Number object) {
+                return object.toString();
+            }
+
+            @Override
+            public Number fromString(String string) {
+                return Integer.parseInt(string);
+            }
+        } );
+        state.textProperty().bindBidirectional(new SimpleIntegerProperty(init_State), new StringConverter<Number>() {
+            @Override
+            public String toString(Number object) {
+                return object.toString();
+            }
+
+            @Override
+            public Number fromString(String string) {
+                return Integer.parseInt(string);
+            }
+        } );
     }    
     
 }
