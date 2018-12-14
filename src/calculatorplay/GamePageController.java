@@ -10,6 +10,7 @@ import static java.lang.String.format;
 import java.net.URISyntaxException;
 import java.net.URL;
 import java.util.ResourceBundle;
+import javafx.animation.PauseTransition;
 import javafx.beans.property.IntegerProperty;
 import javafx.beans.property.SimpleIntegerProperty;
 import javafx.event.ActionEvent;
@@ -22,6 +23,7 @@ import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.stage.Stage;
+import javafx.util.Duration;
 import javafx.util.StringConverter;
 
 /**
@@ -62,9 +64,11 @@ public class GamePageController implements Initializable {
     }
 
     private void Complete() {
-        state.setText("WIN");
+        PauseTransition pauseTransition = new PauseTransition(Duration.seconds(1));
+        pauseTransition.setOnFinished(e -> state.setText("WIN"));
+        pauseTransition.play();
     }
-    
+
     private void Clear() throws IOException, URISyntaxException {
         now_Move = init_Move;
         now_State = init_State;
@@ -87,7 +91,7 @@ public class GamePageController implements Initializable {
         now_State += 1;
         state.setText("" + now_State);
         move.setText("" + now_Move);
-        if(now_State==Goal){
+        if (now_State == Goal) {
             Complete();
         }
     }
@@ -100,6 +104,5 @@ public class GamePageController implements Initializable {
         state.setText("" + now_State);
         move.setText("" + now_Move);
     }
-
 
 }
