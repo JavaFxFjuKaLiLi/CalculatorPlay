@@ -63,7 +63,11 @@ public class GamePageController implements Initializable {
         stage.show();
     }
 
-    private void Complete() {
+    private void Update() {
+        now_Move -= 1;
+        state.setText("" + now_State);
+        move.setText("" + now_Move);
+        if (now_State != Goal)return;
         PauseTransition pauseTransition = new PauseTransition(Duration.seconds(1));
         pauseTransition.setOnFinished(e -> state.setText("WIN"));
         pauseTransition.play();
@@ -77,22 +81,12 @@ public class GamePageController implements Initializable {
     }
 
     private void Add(int x) throws IOException, URISyntaxException {
-        now_Move -= 1;
         now_State += x;
-        state.setText("" + now_State);
-        move.setText("" + now_Move);
-        if (now_State == Goal) {
-            Complete();
-        }
+        Update();
     }
     private void MUL(int x) throws IOException, URISyntaxException {
-        now_Move -= 1;
         now_State *= x;
-        state.setText("" + now_State);
-        move.setText("" + now_Move);
-        if (now_State == Goal) {
-            Complete();
-        }
+        Update();
     }
 
     @FXML
