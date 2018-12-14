@@ -85,6 +85,15 @@ public class GamePageController implements Initializable {
             Complete();
         }
     }
+    private void MUL(int x) throws IOException, URISyntaxException {
+        now_Move -= 1;
+        now_State *= x;
+        state.setText("" + now_State);
+        move.setText("" + now_Move);
+        if (now_State == Goal) {
+            Complete();
+        }
+    }
 
     @FXML
     private void ClearButton(ActionEvent event) throws IOException, URISyntaxException {
@@ -100,6 +109,17 @@ public class GamePageController implements Initializable {
         Node node = (Node) event.getSource();
         String data = (String) node.getUserData();
         Add(Integer.parseInt(data));
+    }
+
+    @FXML
+    private void MULButton(ActionEvent event) throws IOException, URISyntaxException {
+        if (now_Move == 0) {
+            Clear();
+            return;
+        }
+        Node node = (Node) event.getSource();
+        String data = (String) node.getUserData();
+        MUL(Integer.parseInt(data));
     }
 
     @Override
