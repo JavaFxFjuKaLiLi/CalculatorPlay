@@ -44,7 +44,7 @@ public class GamePageController implements Initializable {
     @FXML
     Button PLUSButton;
     static int Level = 1;
-    static int Goal = -5;
+    static int Goal = 2;
     static int init_Move = 1;
     static int now_Move = 1;
     static int init_State = 1;
@@ -61,8 +61,11 @@ public class GamePageController implements Initializable {
         stage.show();
     }
 
-    @FXML
-    private void ClearButton(ActionEvent event) throws IOException, URISyntaxException {
+    private void Complete() {
+        state.setText("WIN");
+    }
+    
+    private void Clear() throws IOException, URISyntaxException {
         now_Move = init_Move;
         now_State = init_State;
         state.setText("" + now_State);
@@ -70,11 +73,23 @@ public class GamePageController implements Initializable {
     }
 
     @FXML
+    private void ClearButton(ActionEvent event) throws IOException, URISyntaxException {
+        Clear();
+    }
+
+    @FXML
     private void ADDButton(ActionEvent event) throws IOException, URISyntaxException {
+        if (now_Move == 0) {
+            Clear();
+            return;
+        }
         now_Move -= 1;
         now_State += 1;
         state.setText("" + now_State);
         move.setText("" + now_Move);
+        if(now_State==Goal){
+            Complete();
+        }
     }
 
     @Override
@@ -85,5 +100,6 @@ public class GamePageController implements Initializable {
         state.setText("" + now_State);
         move.setText("" + now_Move);
     }
+
 
 }
