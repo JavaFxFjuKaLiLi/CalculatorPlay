@@ -62,15 +62,17 @@ public class GamePageController implements Initializable {
         stage.setScene(scene);
         stage.show();
     }
-
+    
+    private void Complete() {
+        PauseTransition pauseTransition = new PauseTransition(Duration.seconds(1));
+        pauseTransition.setOnFinished(e -> state.setText("WIN"));
+        pauseTransition.play();
+    }
     private void Update() {
         now_Move -= 1;
         state.setText("" + now_State);
         move.setText("" + now_Move);
-        if (now_State != Goal)return;
-        PauseTransition pauseTransition = new PauseTransition(Duration.seconds(1));
-        pauseTransition.setOnFinished(e -> state.setText("WIN"));
-        pauseTransition.play();
+        if (now_State == Goal)Complete();
     }
 
     private void Clear() throws IOException, URISyntaxException {
