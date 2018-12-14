@@ -62,17 +62,20 @@ public class GamePageController implements Initializable {
         stage.setScene(scene);
         stage.show();
     }
-    
+
     private void Complete() {
         PauseTransition pauseTransition = new PauseTransition(Duration.seconds(1));
         pauseTransition.setOnFinished(e -> state.setText("WIN"));
         pauseTransition.play();
     }
+
     private void Update() {
         now_Move -= 1;
         state.setText("" + now_State);
         move.setText("" + now_Move);
-        if (now_State == Goal)Complete();
+        if (now_State == Goal) {
+            Complete();
+        }
     }
 
     private void Clear() throws IOException, URISyntaxException {
@@ -80,15 +83,6 @@ public class GamePageController implements Initializable {
         now_State = init_State;
         state.setText("" + now_State);
         move.setText("" + now_Move);
-    }
-
-    private void Add(int x) throws IOException, URISyntaxException {
-        now_State += x;
-        Update();
-    }
-    private void MUL(int x) throws IOException, URISyntaxException {
-        now_State *= x;
-        Update();
     }
 
     @FXML
@@ -104,7 +98,8 @@ public class GamePageController implements Initializable {
         }
         Node node = (Node) event.getSource();
         String data = (String) node.getUserData();
-        Add(Integer.parseInt(data));
+        now_State += Integer.parseInt(data);
+        Update();
     }
 
     @FXML
@@ -115,7 +110,8 @@ public class GamePageController implements Initializable {
         }
         Node node = (Node) event.getSource();
         String data = (String) node.getUserData();
-        MUL(Integer.parseInt(data));
+        now_State *= Integer.parseInt(data);
+        Update();
     }
 
     @Override
