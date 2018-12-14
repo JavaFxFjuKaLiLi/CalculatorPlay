@@ -10,6 +10,7 @@ import static java.lang.String.format;
 import java.net.URISyntaxException;
 import java.net.URL;
 import java.util.ResourceBundle;
+import java.util.logging.Logger;
 import javafx.animation.PauseTransition;
 import javafx.beans.property.IntegerProperty;
 import javafx.beans.property.SimpleIntegerProperty;
@@ -46,7 +47,7 @@ public class GamePageController implements Initializable {
     @FXML
     Button PLUSButton;
     static int Level = 1;
-    static int Goal = 2;
+    static int Goal = 3;
     static int init_Move = 1;
     static int now_Move = 1;
     static int init_State = 1;
@@ -75,6 +76,16 @@ public class GamePageController implements Initializable {
         move.setText("" + now_Move);
         if (now_State == Goal) {
             Complete();
+        } else if (now_Move == 0) {
+            PauseTransition pauseTransition = new PauseTransition(Duration.seconds(2));
+            pauseTransition.setOnFinished(e -> {
+                try {
+                    this.Clear();
+                } catch (IOException | URISyntaxException ex) {
+                    Logger.getLogger(GamePageController.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+                }
+            });
+            pauseTransition.play();
         }
     }
 
@@ -92,10 +103,6 @@ public class GamePageController implements Initializable {
 
     @FXML
     private void ADDButton(ActionEvent event) throws IOException, URISyntaxException {
-        if (now_Move == 0) {
-            Clear();
-            return;
-        }
         Node node = (Node) event.getSource();
         String data = (String) node.getUserData();
         now_State += Integer.parseInt(data);
@@ -104,10 +111,6 @@ public class GamePageController implements Initializable {
 
     @FXML
     private void MULButton(ActionEvent event) throws IOException, URISyntaxException {
-        if (now_Move == 0) {
-            Clear();
-            return;
-        }
         Node node = (Node) event.getSource();
         String data = (String) node.getUserData();
         now_State *= Integer.parseInt(data);
