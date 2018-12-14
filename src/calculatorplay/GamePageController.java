@@ -10,6 +10,7 @@ import static java.lang.String.format;
 import java.net.URISyntaxException;
 import java.net.URL;
 import java.util.ResourceBundle;
+import javafx.beans.property.IntegerProperty;
 import javafx.beans.property.SimpleIntegerProperty;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
@@ -29,84 +30,60 @@ import javafx.util.StringConverter;
  * @author user
  */
 public class GamePageController implements Initializable {
-    @FXML Label level;
-    @FXML Label goal;
-    @FXML Label move;
-    @FXML Label state;
-    @FXML Button ClearButton;
-    @FXML Button PLUSButton;
-    static int Level=1;
-    static int Goal=-5;
-    static int init_Move=1;
-    static int now_Move=1;
-    static int init_State=1;
-    static int now_State=1;
+
+    @FXML
+    Label level;
+    @FXML
+    Label goal;
+    @FXML
+    Label move;
+    @FXML
+    Label state;
+    @FXML
+    Button ClearButton;
+    @FXML
+    Button PLUSButton;
+    static int Level = 1;
+    static int Goal = -5;
+    static int init_Move = 1;
+    static int now_Move = 1;
+    static int init_State = 1;
+    static int now_State = 1;
+    IntegerProperty intProperty = new SimpleIntegerProperty(1024);
+
     @FXML
     private void BackButton(ActionEvent event) throws IOException, URISyntaxException {
-            String value = ((Button)event.getSource()).getText();
-            Parent root = FXMLLoader.load(getClass().getResource("SelectPage.fxml"));
-            Stage stage = (Stage)((Node)event.getSource()).getScene().getWindow();
-            Scene scene = new Scene(root);
-            stage.setScene(scene);
-            stage.show();
-    }   
+        String value = ((Button) event.getSource()).getText();
+        Parent root = FXMLLoader.load(getClass().getResource("SelectPage.fxml"));
+        Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
+        Scene scene = new Scene(root);
+        stage.setScene(scene);
+        stage.show();
+    }
+
     @FXML
     private void ClearButton(ActionEvent event) throws IOException, URISyntaxException {
-            now_Move=init_Move;
-            now_State=init_State;
-    }     
+        now_Move = init_Move;
+        now_State = init_State;
+        state.setText("" + now_State);
+        move.setText("" + now_Move);
+    }
+
     @FXML
     private void ADDButton(ActionEvent event) throws IOException, URISyntaxException {
-            now_Move-=1;
-            now_State+=1;
-    }   
+        now_Move -= 1;
+        now_State += 1;
+        state.setText("" + now_State);
+        move.setText("" + now_Move);
+    }
+
     @Override
     public void initialize(URL url, ResourceBundle rb) {
         // TODO
-        level.textProperty().bindBidirectional(new SimpleIntegerProperty(Level), new StringConverter<Number>() {
-            @Override
-            public String toString(Number object) {
-                return object.toString();
-            }
+        level.setText("" + Level);
+        goal.setText("" + Goal);
+        state.setText("" + now_State);
+        move.setText("" + now_Move);
+    }
 
-            @Override
-            public Number fromString(String string) {
-                return Integer.parseInt(string);
-            }
-        } );
-        goal.textProperty().bindBidirectional(new SimpleIntegerProperty(Goal), new StringConverter<Number>() {
-            @Override
-            public String toString(Number object) {
-                return object.toString();
-            }
-
-            @Override
-            public Number fromString(String string) {
-                return Integer.parseInt(string);
-            }
-        } );
-        move.textProperty().bindBidirectional(new SimpleIntegerProperty(now_Move), new StringConverter<Number>() {
-            @Override
-            public String toString(Number object) {
-                return object.toString();
-            }
-
-            @Override
-            public Number fromString(String string) {
-                return Integer.parseInt(string);
-            }
-        } );
-        state.textProperty().bindBidirectional(new SimpleIntegerProperty(now_State), new StringConverter<Number>() {
-            @Override
-            public String toString(Number object) {
-                return object.toString();
-            }
-
-            @Override
-            public Number fromString(String string) {
-                return Integer.parseInt(string);
-            }
-        } );
-    }    
-    
 }
