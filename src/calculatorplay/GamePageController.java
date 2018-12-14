@@ -76,6 +76,16 @@ public class GamePageController implements Initializable {
         move.setText("" + now_Move);
     }
 
+    private void Add(int x) throws IOException, URISyntaxException {
+        now_Move -= 1;
+        now_State += x;
+        state.setText("" + now_State);
+        move.setText("" + now_Move);
+        if (now_State == Goal) {
+            Complete();
+        }
+    }
+
     @FXML
     private void ClearButton(ActionEvent event) throws IOException, URISyntaxException {
         Clear();
@@ -87,13 +97,9 @@ public class GamePageController implements Initializable {
             Clear();
             return;
         }
-        now_Move -= 1;
-        now_State += 1;
-        state.setText("" + now_State);
-        move.setText("" + now_Move);
-        if (now_State == Goal) {
-            Complete();
-        }
+        Node node = (Node) event.getSource();
+        String data = (String) node.getUserData();
+        Add(Integer.parseInt(data));
     }
 
     @Override
