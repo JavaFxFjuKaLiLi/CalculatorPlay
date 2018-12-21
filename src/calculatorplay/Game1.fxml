@@ -98,13 +98,13 @@
       <Pane layoutX="217.0" layoutY="65.0" prefHeight="31.0" prefWidth="89.0" style="-fx-background-color: #708090;">
          <children>
             <Label layoutX="5.0" prefHeight="30.0" prefWidth="80.0" text="GOAL：" textFill="WHITE" />
-            <Label fx:id="goal" layoutX="75.0" layoutY="7.0" text="0" textFill="WHITE" />
+            <Label fx:id="goal" layoutX="75.0" layoutY="7.0" text="2" textFill="WHITE" />
          </children>
       </Pane>
       <Pane layoutX="120.0" layoutY="65.0" prefHeight="31.0" prefWidth="89.0" style="-fx-background-color: #708090;">
          <children>
             <Label layoutX="5.0" prefHeight="30.0" prefWidth="80.0" text="MOVES：" textFill="WHITE" />
-            <Label fx:id="move" layoutX="75.0" layoutY="7.0" text="0" textFill="WHITE" />
+            <Label fx:id="move" layoutX="75.0" layoutY="7.0" text="1" textFill="WHITE" />
          </children>
       </Pane>
       <Label layoutX="88.0" layoutY="28.0" prefHeight="20.0" prefWidth="80.0" text="LEVELS：" textFill="WHITE" />

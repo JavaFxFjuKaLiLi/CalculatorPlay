@@ -46,11 +46,11 @@ public class GamePageController implements Initializable {
     Button ClearButton;
     @FXML
     Button PLUSButton;
-    static int Goal = 3;
-    static int init_Move = 1;
-    static int now_Move = 1;
-    static int init_State = 1;
-    static int now_State = 1;
+    static int Goal = 0;
+    static int init_Move = 0;
+    static int now_Move = 0;
+    static int init_State = 0;
+    static int now_State = 0;
     IntegerProperty intProperty = new SimpleIntegerProperty(1024);
 
     @FXML
@@ -119,9 +119,9 @@ public class GamePageController implements Initializable {
     @Override
     public void initialize(URL url, ResourceBundle rb) {
         // TODO
-        goal.setText("" + Goal);
-        state.setText("" + now_State);
-        move.setText("" + now_Move);
+        Goal=Integer.parseInt(goal.getText());
+        now_State=init_State=Integer.parseInt(state.getText());
+        now_Move=init_Move=Integer.parseInt(move.getText());
     }
 
 }
