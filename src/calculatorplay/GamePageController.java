@@ -42,16 +42,11 @@ public class GamePageController implements Initializable {
     Label move;
     @FXML
     Label state;
-    @FXML
-    Button ClearButton;
-    @FXML
-    Button PLUSButton;
     static int Goal = 0;
     static int init_Move = 0;
     static int now_Move = 0;
     static int init_State = 0;
     static int now_State = 0;
-    IntegerProperty intProperty = new SimpleIntegerProperty(1024);
 
     @FXML
     private void BackButton(ActionEvent event) throws IOException, URISyntaxException {
