@@ -46,7 +46,6 @@ public class GamePageController implements Initializable {
     Button ClearButton;
     @FXML
     Button PLUSButton;
-    static int Level = 1;
     static int Goal = 3;
     static int init_Move = 1;
     static int now_Move = 1;
@@ -120,7 +119,6 @@ public class GamePageController implements Initializable {
     @Override
     public void initialize(URL url, ResourceBundle rb) {
         // TODO
-        level.setText("" + Level);
         goal.setText("" + Goal);
         state.setText("" + now_State);
         move.setText("" + now_Move);

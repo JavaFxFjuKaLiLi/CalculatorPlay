@@ -112,6 +112,6 @@
          <children>
             <Label fx:id="state" layoutX="19.0" layoutY="24.0" prefHeight="31.0" prefWidth="202.0" text="0" textAlignment="RIGHT" textFill="WHITE" />
          </children></Pane>
-      <Label fx:id="level" layoutX="160.0" layoutY="28.0" text="0" textFill="WHITE" />
+      <Label fx:id="level" layoutX="160.0" layoutY="28.0" text="1" textFill="WHITE" />
    </children>
 </AnchorPane>
