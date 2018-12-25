@@ -42,11 +42,12 @@ public class SelectPageController implements Initializable {
     
     @FXML
      private void StartQuestion(ActionEvent event) throws IOException{
-         Parent root = FXMLLoader.load(getClass().getResource("Game"+Level+".fxml"));
-        Stage stage = (Stage)((Node)event.getSource()).getScene().getWindow();
-        Scene scene = new Scene(root);
-        stage.setScene(scene);
-        stage.show();
+         String value = ((Button)event.getSource()).getText();
+            Parent root = FXMLLoader.load(getClass().getResource("Game1.fxml"));
+            Stage stage = (Stage)((Node)event.getSource()).getScene().getWindow();
+            Scene scene = new Scene(root);
+            stage.setScene(scene);
+            stage.show(); 
      }
     @Override
     public void initialize(URL url, ResourceBundle rb) {

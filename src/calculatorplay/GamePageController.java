@@ -118,5 +118,4 @@ public class GamePageController implements Initializable {
         now_State=init_State=Integer.parseInt(state.getText());
         now_Move=init_Move=Integer.parseInt(move.getText());
     }
-
 }
