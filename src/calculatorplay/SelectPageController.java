@@ -43,7 +43,7 @@ public class SelectPageController implements Initializable {
     @FXML
      private void StartQuestion(ActionEvent event) throws IOException{
          String value = ((Button)event.getSource()).getText();
-            Parent root = FXMLLoader.load(getClass().getResource("Game1.fxml"));
+            Parent root = FXMLLoader.load(getClass().getResource("Game"+Level+".fxml"));
             Stage stage = (Stage)((Node)event.getSource()).getScene().getWindow();
             Scene scene = new Scene(root);
             stage.setScene(scene);
