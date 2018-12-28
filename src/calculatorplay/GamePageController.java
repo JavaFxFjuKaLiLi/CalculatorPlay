@@ -104,6 +104,14 @@ public class GamePageController implements Initializable {
     }
 
     @FXML
+    private void SUBButton(ActionEvent event) throws IOException, URISyntaxException {
+        Node node = (Node) event.getSource();
+        String data = (String) node.getUserData();
+        now_State -= Integer.parseInt(data);
+        Update();
+    }
+
+    @FXML
     private void MULButton(ActionEvent event) throws IOException, URISyntaxException {
         Node node = (Node) event.getSource();
         String data = (String) node.getUserData();
@@ -111,11 +119,33 @@ public class GamePageController implements Initializable {
         Update();
     }
 
+    @FXML
+    private void RightShiftButton(ActionEvent event) throws IOException, URISyntaxException {
+        int n = now_State;
+        int mul = now_State % 10;
+        while (n >= 10) {
+            mul *= 10;
+            n /= 10;
+        }
+        now_State = (now_State / 10 + mul);
+        Update();
+    }
+
+    @FXML
+    private void LeftShiftButton(ActionEvent event) throws IOException, URISyntaxException {
+        int mul = 1;
+        while (mul * 10 < now_State) {
+            mul *= 10;
+        }
+        now_State = (now_State / mul + now_State % mul * 10);
+        Update();
+    }
+
     @Override
     public void initialize(URL url, ResourceBundle rb) {
         // TODO
-        Goal=Integer.parseInt(goal.getText());
-        now_State=init_State=Integer.parseInt(state.getText());
-        now_Move=init_Move=Integer.parseInt(move.getText());
+        Goal = Integer.parseInt(goal.getText());
+        now_State = init_State = Integer.parseInt(state.getText());
+        now_Move = init_Move = Integer.parseInt(move.getText());
     }
 }
