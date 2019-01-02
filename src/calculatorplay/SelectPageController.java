@@ -22,7 +22,7 @@ public class SelectPageController implements Initializable {
     @FXML
     private void SelectPage(ActionEvent event) throws IOException{
         String value = ((Button)event.getSource()).getText();
-        if("+".equals(value)&&Level<15)
+        if("+".equals(value)&&Level<5)
             Level++;
         if("-".equals(value)&&Level>1)
             Level--;
